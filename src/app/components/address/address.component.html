@@ -1,0 +1,66 @@
+<div>
+    <h1>Address Form</h1>
+    <p *ngIf="!addressForm.valid" class="error-messages">All fields are required!</p>
+</div>
+
+<mat-dialog-content class="mat-typography">
+    <form [formGroup]="addressForm" >
+        <mat-progress-bar *ngIf="apiState === 'Pending'" mode="indeterminate"></mat-progress-bar>
+
+        <div class="form-row">
+            <mat-form-field class="form-field">
+                <mat-label>Address *</mat-label>
+                <input type="text" formControlName="address" matInput placeholder="Insert your address">
+                <mat-error>
+                    Required field
+                </mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class="form-row">
+            <mat-form-field class="form-field">
+                <mat-label>City *</mat-label>
+                <input type="url" formControlName="city" matInput placeholder="Insert the city">
+                <mat-error>
+                    Required field
+                </mat-error>
+            </mat-form-field>
+        </div>
+
+        <div>
+            <span class="form-row">
+                <mat-form-field class="form-field row-format">
+                    <mat-label>Post code *</mat-label>
+                    <input type="text" formControlName="postcode" matInput placeholder="Insert your postcode">
+                    <mat-error>
+                        Required field
+                    </mat-error>
+                </mat-form-field>
+            </span>
+        </div>
+
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+      <div class="justify-content-end">
+        <button
+          mat-button
+          mat-flat-button
+          [mat-dialog-close]="false"
+          type="button"
+          color="primary"
+          cdkFocusInitial
+        >
+          Cancel
+        </button>
+    
+        <button
+          mat-flat-button
+          color="accent"
+          type="button"
+          (click)="saveAdress()"
+        >
+          Save
+        </button>
+      </div>
+</mat-dialog-actions>

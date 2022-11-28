@@ -1,0 +1,11 @@
+<div>
+    <mat-progress-bar *ngIf="apiState === 'Pending'" class="progress-bar" mode="indeterminate"></mat-progress-bar>
+    <app-table 
+        [tableName]="'List of Advertisers'" 
+        [headers]="columns" 
+        [rowData]="advertiserList" 
+        [canEdit]="false"
+        [canDelete]="false"
+        (addEvent)="addNewAdvertiser()"
+        ></app-table>
+</div>

@@ -1,0 +1,25 @@
+
+.form-row {
+    margin-right: 30px;
+    .form-field {
+        width: 100%;
+    }
+
+    .row-format {
+        width: 45% !important;
+    }
+}
+
+mat-dialog-actions {
+    float: right !important;
+}
+
+.select-wrapper {
+    width: 50% !important;
+}
+
+.error-messages {
+    font-size: 14px;
+    text-align: left;
+    color: red;
+}

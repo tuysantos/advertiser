@@ -1,0 +1,13 @@
+<div>
+    <mat-progress-bar *ngIf="apiState === 'Pending'" class="progress-bar" mode="indeterminate"></mat-progress-bar>
+    <app-table 
+        [tableName]="'List of Addresses'" 
+        [headers]="columns" 
+        [rowData]="addressList" 
+        [canEdit]="true"
+        (addEvent)="addNewAddress()"
+        [canDelete]="true"
+        (editEvent)="editAddress($event)"
+        (deleteEvent)="deleteAddress($event)"
+        ></app-table>
+</div>

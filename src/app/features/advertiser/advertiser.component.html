@@ -1,0 +1,108 @@
+<div>
+    <h1>Advertiser Form</h1>
+    <p *ngIf="!advertiserForm.valid" class="error-messages">All fields are required!</p>
+</div>
+
+<mat-dialog-content class="mat-typography">
+    <form [formGroup]="advertiserForm" >
+        <mat-progress-bar *ngIf="apiState === 'Pending'" mode="indeterminate"></mat-progress-bar>
+
+        <div class="form-row">
+            <mat-form-field class="form-field">
+                <mat-label>Name *</mat-label>
+                <input type="text" formControlName="name" matInput placeholder="Insert your company name">
+                <mat-error>
+                    Required field
+                </mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class="form-row">
+            <mat-form-field class="form-field">
+                <mat-label>Organisation Url *</mat-label>
+                <input type="url" formControlName="orgurl" matInput placeholder="Insert the organisation url">
+                <mat-error>
+                    Required field
+                </mat-error>
+            </mat-form-field>
+        </div>
+
+        <div>
+            <span class="form-row">
+                <mat-form-field class="form-field row-format">
+                    <mat-label>First name *</mat-label>
+                    <input type="text" formControlName="firstName" matInput placeholder="Insert your first name">
+                    <mat-error>
+                        Required field
+                    </mat-error>
+                </mat-form-field>
+            </span>
+
+            <span class="form-row">
+                <mat-form-field class="form-field row-format">
+                    <mat-label>Last name *</mat-label>
+                    <input type="text" formControlName="lastName" matInput placeholder="Insert your last name">
+                    <mat-error>
+                        Required field
+                    </mat-error>
+                </mat-form-field>
+            </span>
+        </div>
+
+        <div>
+            <span class="form-row">
+                <mat-form-field class="form-field row-format">
+                    <mat-label>Email *</mat-label>
+                    <input type="email" formControlName="email" matInput placeholder="Insert your email">
+                    <mat-error>
+                        Invalid email
+                    </mat-error>
+                </mat-form-field>
+            </span>
+    
+            <span class="form-row">
+                <mat-form-field class="form-field row-format">
+                    <mat-label>Phone *</mat-label>
+                    <input type="number" formControlName="telephone" matInput placeholder="Insert your telefone">
+                    <mat-error>
+                        Required field
+                    </mat-error>
+                </mat-form-field>
+            </span>
+        </div>
+
+        <div class="form-row">
+            <mat-form-field class="form-field select-wrapper">
+                <mat-label>Address *</mat-label>
+                <mat-select [(value)]="addressId" (selectionChange)="setAddress($event)">
+                    <mat-option *ngFor="let item of addressList;" [value]="item.id">{{item.address}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+      <div class="justify-content-end">
+        <button
+          mat-button
+          mat-flat-button
+          [mat-dialog-close]="false"
+          type="button"
+          color="primary"
+          cdkFocusInitial
+        >
+          Cancel
+        </button>
+    
+        <button
+          mat-flat-button
+          color="accent"
+          type="button"
+          (click)="saveAdvertiser()"
+        >
+          Save
+        </button>
+      </div>
+</mat-dialog-actions>
+

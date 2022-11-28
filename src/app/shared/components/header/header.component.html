@@ -1,0 +1,15 @@
+<mat-toolbar>
+    <div>
+        <ul class="navigation-items">
+            <li>
+                <img class="img-logo" src="../../../../assets/img/cvtr-logo.svg">
+            </li>
+            <li>
+                <a (click)="openRoute('advertiser')" [ngClass]="{'active': optionSelected === 1}">Advertiser</a>
+            </li>
+            <li>
+                <a (click)="openRoute('address')" [ngClass]="{'active': optionSelected === 2}">Address</a>
+            </li>
+        </ul>
+    </div>
+</mat-toolbar>

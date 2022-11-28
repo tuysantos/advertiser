@@ -1,0 +1,47 @@
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+
+    li {
+        float: left;
+        margin-left: 20px;
+        a {
+            display: block;
+            color: #fff;
+            text-align: center;
+            padding: 8px;
+            text-decoration: none;
+            font-size: 16px;
+            cursor: pointer;
+            &:hover {
+                background-color: #111;
+            }
+        }
+        &:first-child {
+            width: 300px;
+        }
+    }
+
+}
+
+.active {
+    background-color: #111;
+}
+
+.img-logo {
+    width: 100px;
+    vertical-align: bottom;
+    margin-right: 24px;
+}
+
+mat-tolbar {
+    background-color: #00b4ff !important;
+}
+
+::ng-deep .mat-toolbar-single-row {
+    height: 48px;
+    background-color: #00b4ff !important;
+}
